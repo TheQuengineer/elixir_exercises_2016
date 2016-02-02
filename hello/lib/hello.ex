@@ -1,4 +1,4 @@
-defmodule Rumbl do
+defmodule Hello do
   use Application
 
   # See http://elixir-lang.org/docs/stable/elixir/Application.html
@@ -8,23 +8,23 @@ defmodule Rumbl do
 
     children = [
       # Start the endpoint when the application starts
-      supervisor(Rumbl.Endpoint, []),
+      supervisor(Hello.Endpoint, []),
       # Start the Ecto repository
-      supervisor(Rumbl.Repo, []),
+      supervisor(Hello.Repo, []),
       # Here you could define other workers and supervisors as children
-      # worker(Rumbl.Worker, [arg1, arg2, arg3]),
+      # worker(Hello.Worker, [arg1, arg2, arg3]),
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: Rumbl.Supervisor]
+    opts = [strategy: :one_for_one, name: Hello.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
   def config_change(changed, _new, removed) do
-    Rumbl.Endpoint.config_change(changed, removed)
+    Hello.Endpoint.config_change(changed, removed)
     :ok
   end
 end

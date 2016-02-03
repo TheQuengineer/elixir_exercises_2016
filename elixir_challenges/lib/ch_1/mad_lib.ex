@@ -14,12 +14,12 @@ defmodule MadLib do
 
  def format(input) do
    Enum.map(input, &String.strip(&1, ?\n))
-   |> process
+   |> bind
    |> build
    |> show
  end
 
- def process(answers) do
+ def bind(answers) do
    Enum.zip(parts_of_speech, answers)
  end
 
